@@ -62,7 +62,7 @@ st.divider   (width = "stretch")
 
 ############################################################################
 
-st.markdown ("This Streamlit app was developed by **Arcy Layne L. Sace**<sup>1</sup>, **Darren Mykel V. Gapay**<sup>2</sup>, **Ernest P. Macalalad**<sup>1</sup>, & **Reinabelle C. Reyes**<sup>1,3</sup>", unsafe_allow_html = True)
+st.markdown ("This Streamlit app was developed by **Arcy Layne L. Sace**<sup>1</sup>, **Darren Mykel V. Gapay**<sup>2</sup>, **Ernest P. Macalalad**<sup>1</sup>, and **Reinabelle C. Reyes**<sup>1,3</sup>", unsafe_allow_html = True)
 st.write ("<sup>1</sup>Philippine Space Agency, Eastwood Avenue, Brgy. Bagumbayan, Quezon City, Philippines  \n<sup>2</sup>University of Glasgow, University Avenue, Glasgow, G12 8QQ, Scotland, United Kingdom  \n<sup>3</sup>Research Center for Theoretical Physics, Central Visayan Institute Foundation, Jagna, Bohol, Philippines", unsafe_allow_html = True)
 # st.write ("<sup>1</sup>Philippine Space Agency, Eastwood Avenue, Brgy. Bagumbayan, Quezon City, Philippines", unsafe_allow_html = True)
 # st.write ("<sup>2</sup>University of Glasgow, University Avenue, Glasgow, G12 8QQ, Scotland, United Kingdom", unsafe_allow_html = True)
