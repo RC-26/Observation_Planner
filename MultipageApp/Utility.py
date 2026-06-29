@@ -364,8 +364,8 @@ def Generate_Transit_Dates(CSV, timezone='UTC', obs_csv=None, min_alt=20, specif
                     Obs_Ingress.append (Day_Tearly.iso)
                     Obs_Midpoint.append (T_mid.iso)
                     Obs_Egress.append (Day_Tlate.iso)
-                    Obs_RA.append (ra)
-                    Obs_Dec.append (dec)
+                    # Obs_RA.append (ra)
+                    # Obs_Dec.append (dec)
 
     DF['Host Name'      ] = Host_All
     DF['Planet Name'    ] = Planet_All
@@ -374,8 +374,8 @@ def Generate_Transit_Dates(CSV, timezone='UTC', obs_csv=None, min_alt=20, specif
     DF['Ingress'        ] = Obs_Ingress
     DF['Midpoint'       ] = Obs_Midpoint
     DF['Egress'         ] = Obs_Egress
-    DF['RA'             ] = Obs_RA
-    DF['Dec'            ] = Obs_Dec
+    # DF['RA'             ] = Obs_RA
+    # DF['Dec'            ] = Obs_Dec
 
     droplist = [idx for idx in range(len(DF)) if len(DF['Ingress'][idx]) == 0]
     DF = DF.drop(droplist).reset_index(drop=True)
