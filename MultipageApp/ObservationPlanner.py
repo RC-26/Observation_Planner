@@ -198,7 +198,6 @@ if Display_Option == 'Yes':
     st.dataframe(st.session_state['All_NEAcsv'])
     st.write ('Host Stars:', len(sorted(set(All_NEAcsv['Host Name']))), '| Exoplanets', len(sorted(set(All_NEAcsv['Planet Name']))))
     
-
 st.divider(width = 'stretch')
 
 ############################################################################
@@ -224,6 +223,7 @@ if ed_submit:
 if 'NEAcsv' in st.session_state:
     NEAcsv = st.session_state['NEAcsv']
     st.dataframe(NEAcsv)
+        st.write ('Observable Transiting Exoplanets:', len(sorted(set(NEAcsv['Planet Name']))))
 
     st.divider(width = 'stretch')
 
