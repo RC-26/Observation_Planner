@@ -223,7 +223,7 @@ if ed_submit:
 if 'NEAcsv' in st.session_state:
     NEAcsv = st.session_state['NEAcsv']
     st.dataframe(NEAcsv)
-        st.write ('Observable Transiting Exoplanets:', len(sorted(set(NEAcsv['Planet Name']))))
+    st.write ('Observable Transiting Exoplanets:', len(sorted(set(NEAcsv['Planet Name']))))
 
     st.divider(width = 'stretch')
 
