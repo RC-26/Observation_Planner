@@ -227,9 +227,10 @@ if ed_submit:
     st.session_state['timezone'     ] = timezone
     st.session_state['tz_name'      ] = tz_name
     st.session_state['tz_offset_val'] = tz_offset_val
-    st.session_state['filtered_obs' ] = filtered_obs
     st.session_state['Vband_limit'  ] = Vband_limit
     st.session_state['min_alt'      ] = min_alt
+    filtered_obs = show_data_loc (TDates)
+    st.session_state['filtered_obs' ] = filtered_obs
 
 if 'NEAcsv' in st.session_state:
     NEAcsv = st.session_state['NEAcsv']
@@ -238,4 +239,5 @@ if 'NEAcsv' in st.session_state:
 if 'TDates' in st.session_state:
     TDates = st.session_state['TDates']
     filtered_obs = show_data_loc (TDates)
+    st.session_state['filtered_obs' ] = filtered_obs
     st.divider (width = 'stretch')
