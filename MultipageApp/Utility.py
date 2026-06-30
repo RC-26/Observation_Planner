@@ -124,18 +124,18 @@ def Get_NEAdata(targets = None, Vband_limit = None):
         if type(targets[0]) == list:
             targets = targets[0]
 
-    select_data = ['hostname',   'pl_name',          'ra',           'dec',
-                   'sy_dist',    'sy_snum',           'sy_pnum',      'sy_vmag',
-                   'st_mass',    'st_rad',            'pl_masse',     'pl_rade',
-                   'pl_eqt',
-                   'st_lum',
-                   'pl_orbper',  'pl_orbpererr1',     'pl_orbpererr2','pl_orbsmax',
-                   'pl_tranmid', 'pl_tranmiderr1',    'pl_tranmiderr2',
-                   'pl_trandur', 'pl_trandurerr1',    'pl_trandurerr2',
-                   'pl_orblper', 'pl_orbtper',        'pl_orbeccen',
+    select_data = ['hostname'  , 'pl_name'       , 'ra',  'dec', 'sy_vmag',
+                   'sy_dist'   , 'sy_snum'       , 'sy_pnum'   ,
+                   'st_mass'   , 'st_rad'        , 'pl_masse'  , 'pl_rade',
+                   'pl_eqt'    ,
+                   'st_lum'    ,
+                   'pl_orbper' ,  'pl_orbpererr1', 'pl_orbpererr2' , 'pl_orbsmax',
+                   'pl_tranmid', 'pl_tranmiderr1', 'pl_tranmiderr2',
+                   'pl_trandur', 'pl_trandurerr1', 'pl_trandurerr2',
+                   'pl_orblper', 'pl_orbtper'    , 'pl_orbeccen'   ,
                    'pl_trandep']
 
-    cond_standards = ['hostname', 'pl_name', 'ra', 'dec', 'st_rad', 'pl_rade', 'sy_vmag',
+    cond_standards = ['hostname' ,    'pl_name', 'ra', 'dec', 'st_rad', 'pl_rade', 'sy_vmag',
                       'pl_orbper', 'pl_tranmid', 'pl_trandur']
 
     not_null    = [column + ' is not null' for column in select_data    
