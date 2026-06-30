@@ -352,7 +352,7 @@ def Generate_Transit_Dates(CSV, timezone='UTC', obs_csv=None, min_alt=20, specif
                     Tlate = Tlate * -1
                 Day_Tlate = at.Time(Tmid - Tlate, format='jd', scale='utc')
 
-                night_time  = observer.tonight(time=Day_Tearly.iso, horizon=-12*u.deg)
+                night_time  = observer.tonight(time=Day_Tearly, horizon=-12*u.deg)
                 night_start = at.Time(night_time[0].iso)
                 night_end   = at.Time(night_time[1].iso)
 
