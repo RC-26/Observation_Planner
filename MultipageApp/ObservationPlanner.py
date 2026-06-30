@@ -62,8 +62,8 @@ st.subheader("SkyNet Observatories")
 
 # Observatory names 
 SN_obs = ['Cerro Tololo Inter-American Obs', 'Meckering Obs', 'Perth Obs', 'American Public University System Obs', 
-              'Astronomical Obs of the Jagiellonian University', 'Fan Mountain Obs', 'Hampden-Sydney College Obs', 
-              'Montana Learning Center', 'Morehead', 'Northern Skies Obs', 'Sleaford Obs', 'Carabao Island Obs'] 
+          'Astronomical Obs of the Jagiellonian University', 'Fan Mountain Obs', 'Hampden-Sydney College Obs', 
+          'Montana Learning Center', 'Morehead', 'Northern Skies Obs', 'Sleaford Obs', 'Carabao Island Obs']
 
 # Longitudes 
 SN_long       = [-70.805, 116.989, 116.136, -77.863, 19.828, -78.694, -78.471, -105.53, -79.05, -72.166, -105.921, 121.91442717417193]
