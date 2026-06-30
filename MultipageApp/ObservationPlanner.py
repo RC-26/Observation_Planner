@@ -223,12 +223,12 @@ if ed_submit:
 if 'NEAcsv' in st.session_state:
     NEAcsv = st.session_state['NEAcsv']
     st.dataframe(NEAcsv)
-    st.write ('Observable Transiting Exoplanets:', len(sorted(set(NEAcsv['Planet Name']))))
 
     st.divider(width = 'stretch')
 
     tz_name, tz_offset_val = timezone
     TDates = Generate_Transit_Dates(NEAcsv, obs_csv = SN_OBS, min_alt = min_alt, timezone = tz_name, tz_offset = tz_offset)
+    st.write ('Observable Transiting Exoplanets:', len(sorted(set(TDates['Planet Name']))))
     filtered_obs = show_data_loc(TDates)
     st.session_state['TDates'       ] = TDates
     st.session_state['timezone'     ] = timezone
