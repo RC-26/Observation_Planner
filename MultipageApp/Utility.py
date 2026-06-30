@@ -352,7 +352,12 @@ def Generate_Transit_Dates(CSV, timezone='UTC', obs_csv=None, min_alt=20, specif
                     Tlate = Tlate * -1
                 Day_Tlate = at.Time(Tmid - Tlate, format='jd', scale='utc')
 
-                if ap.is_observable(constraints, observer, target, time_range=[Day_Tearly, Day_Tlate]):
+                night_time  = observer.tonight(time=Day_Tearly.iso, horizon=-12*u.deg)
+                night_start = at.Time(night_time[0].iso)
+                night_end   = at.Time(night_time[1].iso)
+
+                # if ap.is_observable(constraints, observer, target, time_range = [Day_Tearly, Day_Tlate]):
+                if ap.is_observable(constraints, observer, target, time_range = [Day_Tearly, Day_Tlate]) and ap.is_observable(constraints, observer, target, time_range = [night_start, night_end]):
                     transit_number += 1
                     T_mid      += tz_offset[timezone] * u.hour
                     Day_Tearly += tz_offset[timezone] * u.hour
