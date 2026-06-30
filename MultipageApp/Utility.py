@@ -488,12 +488,12 @@ def Visible_Airmass_Plots(input_csv, transit_dates, min_alt = 20, obs_csv = None
             ingress_time = at.Time(ingress, scale = 'utc', format = 'iso')
             egress_time  = at.Time( egress, scale = 'utc', format = 'iso')
 
-            if not ap.is_observable(constraints, main_observer, main_target, time_range = [ingress_time, egress_time]) or not ap.is_observable(constraints, main_observer, main_target, time_range=[night_start, night_end]):
+            if not ap.is_observable(constraints, main_observer, main_target, time_range = [ingress_time, egress_time]):
                 plt.close()
-                continue:
-            # if not ap.is_observable(constraints, main_observer, main_target, time_range = [ingress_time, egress_time]):
-            #     plt.close()
-            #     continue
+                continue
+            if not ap.is_observable(constraints, main_observer, main_target, time_range = [ night_start,   night_end]):
+                plt.close()
+                continue
 
             for obs_name, lat, lon, elev in zip(obs_csv['Observatory'], obs_csv['Latitude'], obs_csv['Longitude'], obs_csv['Elevation']):
                 location = ac.EarthLocation.from_geodetic(lon, lat, elev*u.m)
