@@ -208,28 +208,21 @@ st.markdown  ("Generates the **dates** of the **predicted transit events** of al
 options = [(tz, offset) for tz, offset in tz_offset.items()]
 
 with st.form('Submission_Form'):
-    targets    = st.text_input (label='Target planet: ', placeholder="Example: 'TRAPPIST-1 c' or 'All'")
-    start_date = st.datetime_input (label='Start date: ')
-    end_date   = st.datetime_input (label='End date: **(Must be later than the Start Date)**')
-    timezone = st.selectbox (label = 'Timezone of output dates / UTC offset', options = options, index = options.index(('UTC', 0)))
-    min_alt     = st.number_input (label = 'Minimum Altitude **(Default value = 20.00)**'      , value = 20.00, min_value = 0.00, max_value = 89.00, placeholder = "Default value = 20")
-    Vband_limit = st.number_input (label = 'V-band Magnitude limit **(Default value = 10.00)**', value = 10.00, placeholder = "Default value = 10")
-    ed_submit  = st.form_submit_button('Submit')
+    targets     = st.text_input     (label='Target planet: ', placeholder="Example: 'TRAPPIST-1 c' or 'All'")
+    start_date  = st.datetime_input (label='Start date: ')
+    end_date    = st.datetime_input (label='End date: **(Must be later than the Start Date)**')
+    timezone    = st.selectbox      (label = 'Timezone of output dates / UTC offset', options = options, index = options.index(('UTC', 0)))
+    min_alt     = st.number_input   (label = 'Minimum Altitude **(Default value = 20.00)**'      , value = 20.00, min_value = 0.00, max_value = 89.00, placeholder = "Default value = 20")
+    Vband_limit = st.number_input   (label = 'V-band Magnitude limit **(Default value = 10.00)**', value = 10.00, placeholder = "Default value = 10")
+    ed_submit   = st.form_submit_button ('Submit')
 
 if ed_submit:
     NEAcsv = Get_Transits(targets=targets, start_date=str(start_date), end_date=str(end_date), obs_csv = SN_OBS, Vband_limit = Vband_limit)
     st.session_state['NEAcsv'] = NEAcsv  
-
-if 'NEAcsv' in st.session_state:
-    NEAcsv = st.session_state['NEAcsv']
-    st.dataframe(NEAcsv)
-
-    st.divider(width = 'stretch')
-
     tz_name, tz_offset_val = timezone
-    TDates = Generate_Transit_Dates(NEAcsv, obs_csv = SN_OBS, min_alt = min_alt, timezone = tz_name, tz_offset = tz_offset)
+    TDates = Generate_Transit_Dates (NEAcsv, obs_csv = SN_OBS, min_alt = min_alt, timezone = tz_name, tz_offset = tz_offset)
     st.write ('Observable Transiting Exoplanets:', len(sorted(set(TDates['Planet Name']))))
-    filtered_obs = show_data_loc(TDates)
+
     st.session_state['TDates'       ] = TDates
     st.session_state['timezone'     ] = timezone
     st.session_state['tz_name'      ] = tz_name
@@ -237,5 +230,12 @@ if 'NEAcsv' in st.session_state:
     st.session_state['filtered_obs' ] = filtered_obs
     st.session_state['Vband_limit'  ] = Vband_limit
     st.session_state['min_alt'      ] = min_alt
-        
+
+if 'NEAcsv' in st.session_state:
+    NEAcsv = st.session_state['NEAcsv']
+    st.dataframe(NEAcsv)
     st.divider(width = 'stretch')
+if 'TDates' in st.session_state:
+    TDates = st.session_state['TDates']
+    filtered_obs = show_data_loc (TDates)
+    st.divider (width = 'stretch')
