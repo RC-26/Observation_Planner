@@ -46,7 +46,7 @@ Render_Sidebar()
 
 st.title("Observation Scheduling Tool")
 
-st.markdown("This pipeline is for helping users plan and schedule their observations by extracting data from the **NASA Exoplanet Archive (NEA)** to predict the next transit events.  \nThe current iteration of this tool focuses on ground-based telescopes that are part of the **Skynet Robotic Telescope Network (SkyNet)**.") 
+st.markdown("This pipeline is for helping users plan and schedule their observations by extracting data from the **NASA Exoplanet Archive (NEA)** to predict the next transit events of catalogued exoplanets.  \nThe current iteration of this tool focuses on ground-based telescopes that are part of the **Skynet Robotic Telescope Network (SkyNet)**.") 
 
 st.divider(width = "stretch")
 
