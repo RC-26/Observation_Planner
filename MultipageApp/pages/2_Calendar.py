@@ -51,7 +51,7 @@ st.divider   (width = 'stretch')
 ############################################################################
 
 if 'TDates' not in st.session_state:
-    st.warning('No transit data found. Please go back and submit the form first.')
+    st.warning('No transit data found. Please go back and complete the Observation Planner tab first.')
     st.stop()
 
 TDates = st.session_state['TDates']
